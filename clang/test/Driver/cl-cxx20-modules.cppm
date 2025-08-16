@@ -14,3 +14,8 @@
 
 //--- test.pcm
 // CPP20WARNING-NOT: clang-cl: warning: argument unused during compilation: '/std:c++20' [-Wunused-command-line-argument]
+
+// test whether the following outputs cl-cxx20-modules.pcm
+
+// RUN: %clang_cl /std:c++20 --precompile -pcmOutput:"%t/cl-cxx20-modules.pcm" -### -- %s 2>&1 | FileCheck %s
+// CHECK: "-o" "{{.*}}/cl-cxx20-modules.pcm"
